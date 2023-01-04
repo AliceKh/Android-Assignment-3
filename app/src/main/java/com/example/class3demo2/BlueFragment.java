@@ -14,6 +14,10 @@ import androidx.navigation.Navigation;
 public class BlueFragment extends Fragment {
     TextView titleTv;
     String title;
+    String name;
+    String ID;
+    String birthday;
+    String birthdayTime;
 
     public static BlueFragment newInstance(String title){
         BlueFragment frag = new BlueFragment();
@@ -38,11 +42,23 @@ public class BlueFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_blue, container, false);
 
-        title = BlueFragmentArgs.fromBundle(getArguments()).getBlueTitle();
+        name = BlueFragmentArgs.fromBundle(getArguments()).getName();
+        ID = BlueFragmentArgs.fromBundle(getArguments()).getId();
 
-        TextView titleTv = view.findViewById(R.id.bluefrag_title_tv);
-        if (title != null){
-            titleTv.setText(title);
+        birthday = BlueFragmentArgs.fromBundle(getArguments()).getBirthday();
+//        birthdayTime = BlueFragmentArgs.fromBundle(getArguments()).getb;
+
+        TextView nameEt = view.findViewById(R.id.editNameEt);
+        TextView idEt = view.findViewById(R.id.editIdEt);
+        TextView birthdayEt = view.findViewById(R.id.editBirthdayEt);
+        if (name != null){
+            nameEt.setText(name);
+        }
+        if (ID != null){
+            idEt.setText(ID);
+        }
+        if (birthday != null){
+            birthdayEt.setText(birthday);
         }
 
         View button = view.findViewById(R.id.bluefrag_back_btn);
