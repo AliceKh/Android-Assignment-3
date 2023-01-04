@@ -12,8 +12,8 @@ public class Student {
     public String name="";
     public String avatarUrl="";
     public Boolean cb=false;
-    public String birthday="";
-    public String birthTime="";
+//    public String birthday="";
+//    public String birthTime="";
 
     public Student(){
     }
@@ -22,8 +22,8 @@ public class Student {
         this.id = id;
         this.avatarUrl = avatarUrl;
         this.cb = cb;
-        this.birthday = birthday;
-        this.birthTime = birthTime;
+//        this.birthday = birthday;
+//        this.birthTime = birthTime;
     }
 
     public void setId(@NonNull String id) {
