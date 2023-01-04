@@ -59,6 +59,52 @@
                     android:hint="Student name" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:startIconDrawable="@drawable/ic_baseline_edit_calendar_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dateEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Birth Date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:padding="8dp"
+                android:layout_height="match_parent">
+
+                <DatePicker
+                    android:id="@+id/date_picker"
+                    android:layout_width="match_parent"
+                    android:calendarViewShown="true"
+                    android:spinnersShown="false"
+                    android:layout_weight="4"
+                    android:layout_height="0dp" />
+
+                <TimePicker
+                    android:id="@+id/time_picker"
+                    android:layout_weight="4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+
+                <Button
+                    android:id="@+id/date_time_set"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:text="Set"
+                    android:layout_height="0dp" />
+
+            </LinearLayout>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
