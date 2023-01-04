@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.navigation.Navigation;
 
+import android.os.Looper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -94,6 +95,14 @@ public class AddStudentFragment extends Fragment {
                 return true;
             }
         });
+
+        new android.os.Handler(Looper.getMainLooper()).postDelayed(
+                new Runnable() {
+                    public void run() {
+                        popupWindow.dismiss();
+                    }
+                },
+                5000);
     }
 
 }
