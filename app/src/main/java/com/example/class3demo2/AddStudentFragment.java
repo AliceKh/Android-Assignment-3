@@ -147,7 +147,7 @@ public class AddStudentFragment extends Fragment implements
             mDay = c.get(Calendar.DAY_OF_MONTH);
 
 
-            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
                     new DatePickerDialog.OnDateSetListener() {
 
                         @Override
@@ -168,7 +168,7 @@ public class AddStudentFragment extends Fragment implements
             mMinute = c.get(Calendar.MINUTE);
 
             // Launch Time Picker Dialog
-            TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+            TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),
                     new TimePickerDialog.OnTimeSetListener() {
 
                         @Override
