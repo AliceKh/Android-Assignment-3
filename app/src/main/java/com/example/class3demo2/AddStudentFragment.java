@@ -59,7 +59,8 @@ public class AddStudentFragment extends Fragment {
         binding.saveBtn.setOnClickListener(view1 -> {
             String name = binding.nameEt.getText().toString();
             String stId = binding.idEt.getText().toString();
-            Student st = new Student(stId,name,"",false);
+//            String stBirthday = binding.dateEt.getText().toString();
+            Student st = new Student(stId,name,"",false, "stBirthday", "");
             Model.instance().addStudent(st,()->{
                 Navigation.findNavController(view1).popBackStack();
             });
