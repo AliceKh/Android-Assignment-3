@@ -10,14 +10,18 @@ public class Student {
     @NonNull
     public String id="";
     public String name="";
+    public String birthday="";
+    public String time="";
     public String avatarUrl="";
     public Boolean cb=false;
 
     public Student(){
     }
-    public Student( String id,String name, String avatarUrl, Boolean cb) {
+    public Student( String id,String name, String birthday, String time, String avatarUrl, Boolean cb) {
         this.name = name;
         this.id = id;
+        this.birthday = birthday;
+        this.time = time;
         this.avatarUrl = avatarUrl;
         this.cb = cb;
     }
@@ -45,6 +49,14 @@ public class Student {
 
     public String getName() {
         return name;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public String getTime() {
+        return time;
     }
 
     public String getAvatarUrl() {
