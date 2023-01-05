@@ -41,13 +41,13 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.Date;
 
-public class AddStudentFragment extends Fragment implements
-        View.OnClickListener {
+public class AddStudentFragment extends Fragment {
 
-    Button btnDatePicker, btnTimePicker;
-    EditText txtDate, txtTime;
-    private int mYear, mMonth, mDay, mHour, mMinute;
+//    Button btnDatePicker, btnTimePicker;
+//    EditText txtDate, txtTime;
+//    private int mYear, mMonth, mDay, mHour, mMinute;
 
     FragmentAddStudentBinding binding;
     @Override
@@ -81,8 +81,11 @@ public class AddStudentFragment extends Fragment implements
         binding.saveBtn.setOnClickListener(view1 -> {
             String name = binding.nameEt.getText().toString();
             String stId = binding.idEt.getText().toString();
-//            String stBirthday = binding.dateEt.getText().toString();
-            Student st = new Student(stId,name,"",false, "stBirthday", "");
+            DatePicker datePicker = view.findViewById(R.id.date_picker);
+            String stBirthday = datePicker.getDayOfMonth() + "/" + datePicker.getMonth()+1 +"/"+ datePicker.getYear();
+            TimePicker timePicker = view.findViewById(R.id.time_picker);
+            String stTime = timePicker.getHour() +":"+ timePicker.getMinute();
+            Student st = new Student(stId,name,stBirthday,stTime,"",false);
             Model.instance().addStudent(st,()->{
                 Navigation.findNavController(view1).popBackStack();
             });
@@ -90,13 +93,13 @@ public class AddStudentFragment extends Fragment implements
         popUp(inflater, view, R.layout.success_popup);
 
 
-            Button btnDatePicker=view.findViewById(R.id.btn_date);
-            Button btnTimePicker=view.findViewById(R.id.btn_time);
-            EditText txtDate=view.findViewById(R.id.in_date);
-            EditText txtTime=view.findViewById(R.id.in_time);
-
-            btnDatePicker.setOnClickListener(this);
-            btnTimePicker.setOnClickListener(this);
+//            Button btnDatePicker=view.findViewById(R.id.btn_date);
+//            Button btnTimePicker=view.findViewById(R.id.btn_time);
+//            EditText txtDate=view.findViewById(R.id.in_date);
+//            EditText txtTime=view.findViewById(R.id.in_time);
+//
+//            btnDatePicker.setOnClickListener(this);
+//            btnTimePicker.setOnClickListener(this);
         });
 
         binding.cancellBtn.setOnClickListener(view1 -> Navigation.findNavController(view1).popBackStack(R.id.studentsListFragment,false));
@@ -135,51 +138,51 @@ public class AddStudentFragment extends Fragment implements
                 5000);
     }
 
-    @Override
-    public void onClick(View v) {
-
-        if (v == btnDatePicker) {
-
-            // Get Current Date
-            final Calendar c = Calendar.getInstance();
-            mYear = c.get(Calendar.YEAR);
-            mMonth = c.get(Calendar.MONTH);
-            mDay = c.get(Calendar.DAY_OF_MONTH);
-
-
-            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
-                    new DatePickerDialog.OnDateSetListener() {
-
-                        @Override
-                        public void onDateSet(DatePicker view, int year,
-                                              int monthOfYear, int dayOfMonth) {
-
-                            txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-
-                        }
-                    }, mYear, mMonth, mDay);
-            datePickerDialog.show();
-        }
-        if (v == btnTimePicker) {
-
-            // Get Current Time
-            final Calendar c = Calendar.getInstance();
-            mHour = c.get(Calendar.HOUR_OF_DAY);
-            mMinute = c.get(Calendar.MINUTE);
-
-            // Launch Time Picker Dialog
-            TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),
-                    new TimePickerDialog.OnTimeSetListener() {
-
-                        @Override
-                        public void onTimeSet(TimePicker view, int hourOfDay,
-                                              int minute) {
-
-                            txtTime.setText(hourOfDay + ":" + minute);
-                        }
-                    }, mHour, mMinute, false);
-            timePickerDialog.show();
-        }
-    }
+//    @Override
+//    public void onClick(View v) {
+//
+//        if (v == btnDatePicker) {
+//
+//            // Get Current Date
+//            final Calendar c = Calendar.getInstance();
+//            mYear = c.get(Calendar.YEAR);
+//            mMonth = c.get(Calendar.MONTH);
+//            mDay = c.get(Calendar.DAY_OF_MONTH);
+//
+//
+//            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
+//                    new DatePickerDialog.OnDateSetListener() {
+//
+//                        @Override
+//                        public void onDateSet(DatePicker view, int year,
+//                                              int monthOfYear, int dayOfMonth) {
+//
+//                            txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+//
+//                        }
+//                    }, mYear, mMonth, mDay);
+//            datePickerDialog.show();
+//        }
+//        if (v == btnTimePicker) {
+//
+//            // Get Current Time
+//            final Calendar c = Calendar.getInstance();
+//            mHour = c.get(Calendar.HOUR_OF_DAY);
+//            mMinute = c.get(Calendar.MINUTE);
+//
+//            // Launch Time Picker Dialog
+//            TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),
+//                    new TimePickerDialog.OnTimeSetListener() {
+//
+//                        @Override
+//                        public void onTimeSet(TimePicker view, int hourOfDay,
+//                                              int minute) {
+//
+//                            txtTime.setText(hourOfDay + ":" + minute);
+//                        }
+//                    }, mHour, mMinute, false);
+//            timePickerDialog.show();
+//        }
+//    }
 
 }

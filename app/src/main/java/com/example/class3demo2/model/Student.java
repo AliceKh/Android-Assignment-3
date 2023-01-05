@@ -10,20 +10,21 @@ public class Student {
     @NonNull
     public String id="";
     public String name="";
+    public String birthday="";
+    public String time="";
     public String avatarUrl="";
     public Boolean cb=false;
-//    public String birthday="";
-//    public String birthTime="";
 
     public Student(){
     }
-    public Student( String id,String name, String avatarUrl, Boolean cb, String birthday, String birthTime) {
+    public Student( String id,String name, String birthday, String time, String avatarUrl, Boolean cb) {
         this.name = name;
         this.id = id;
+        this.birthday = birthday;
+        this.time = time;
         this.avatarUrl = avatarUrl;
         this.cb = cb;
-//        this.birthday = birthday;
-//        this.birthTime = birthTime;
+
     }
 
     public void setId(@NonNull String id) {
@@ -49,6 +50,14 @@ public class Student {
 
     public String getName() {
         return name;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public String getTime() {
+        return time;
     }
 
     public String getAvatarUrl() {
