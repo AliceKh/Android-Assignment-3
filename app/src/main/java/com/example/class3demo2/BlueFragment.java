@@ -17,7 +17,7 @@ public class BlueFragment extends Fragment {
     String name;
     String ID;
     String birthday;
-    String birthdayTime;
+    String time;
 
     public static BlueFragment newInstance(String title){
         BlueFragment frag = new BlueFragment();
@@ -46,11 +46,12 @@ public class BlueFragment extends Fragment {
         ID = BlueFragmentArgs.fromBundle(getArguments()).getId();
 
         birthday = BlueFragmentArgs.fromBundle(getArguments()).getBirthday();
-//        birthdayTime = BlueFragmentArgs.fromBundle(getArguments()).getb;
+        time = BlueFragmentArgs.fromBundle(getArguments()).getTime();
 
         TextView nameEt = view.findViewById(R.id.editNameEt);
         TextView idEt = view.findViewById(R.id.editIdEt);
         TextView birthdayEt = view.findViewById(R.id.editBirthdayEt);
+        TextView timeEt = view.findViewById(R.id.editTimeEt);
         if (name != null){
             nameEt.setText(name);
         }
@@ -59,6 +60,8 @@ public class BlueFragment extends Fragment {
         }
         if (birthday != null){
             birthdayEt.setText(birthday);
+        }    if (time != null){
+            timeEt.setText(time);
         }
 
         View button = view.findViewById(R.id.bluefrag_back_btn);
