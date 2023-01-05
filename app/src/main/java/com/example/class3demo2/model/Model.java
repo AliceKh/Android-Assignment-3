@@ -57,5 +57,20 @@ public class Model {
         });
     }
 
+    public void editStudent(Student st, AddStudentListener listener){
+        executor.execute(()->{
+            localDb.studentDao().delete(localDb.studentDao().getStudentById(st.id));
+            localDb.studentDao().insertAll(st);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            mainHandler.post(()->{
+                listener.onComplete();
+            });
+        });
+    }
+
 
 }

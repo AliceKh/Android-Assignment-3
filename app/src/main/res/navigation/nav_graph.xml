@@ -31,6 +31,9 @@
         <argument
             android:name="time"
             app:argType="string" />
+<!--        <argument-->
+<!--            android:name="student"-->
+<!--            app:argType="com.example.class3demo2.model.Student" />-->
     </fragment>
     <fragment
         android:id="@+id/addStudentFragment"
